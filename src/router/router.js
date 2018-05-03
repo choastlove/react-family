@@ -10,7 +10,8 @@ import Bundle from './Bundle'
 import Home from 'bundle-loader?lazy&name=home!pages/Home/Home';
 import Foo from 'bundle-loader?lazy&name=foo!pages/Foo/Foo';
 import Bar from 'bundle-loader?lazy&name=bar!pages/Bar/Bar';
-import UserInfo from 'pages/UserInfo/UserInfo';
+import UserInfo from 'bundle-loader?lazy&name=userinfo!pages/UserInfo/UserInfo';
+import List from 'bundle-loader?lazy&name=list!pages/List/List';
 //加载
 const Loading = function(){
     return <div>Laoding...</div>
@@ -28,17 +29,13 @@ const createComponent = (component) => (props) => (
 const getRouter = () => (
     <Router>
         <div>
-            <ul>
-                <li><Link to="/">首页</Link></li>
-                <li><Link to="/foo">Foo</Link></li>
-                <li><Link to="/bar">Bar</Link></li>
-                <li><Link to="/userinfo">UserInfo</Link></li>
-            </ul>
+            
             <Switch>
                 <Route exact path="/" component={createComponent(Home)}/>
                 <Route path="/foo" component={createComponent(Foo)}/>
                 <Route path="/bar" component={createComponent(Bar)}/>
                 <Route path="/userinfo" component={createComponent(UserInfo)}/>
+                <Route path="/list" component={createComponent(List)}/>
             </Switch>
         </div>
     </Router>

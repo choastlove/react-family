@@ -1,0 +1,22 @@
+.nav{
+    list-style: none;
+    height: 45px;
+    background: #203854;
+}
+.nav li {
+    display: block;
+    float: left;
+    width: 105px;
+    font-size: 14px;
+    line-height: 45px;
+    text-align: center;
+}
+.nav li:first-child{
+    width: 280px;
+    font-size: 18px;
+    text-align: left;
+}
+.nav li a{
+    color: #fff;
+    text-decoration: none;
+}

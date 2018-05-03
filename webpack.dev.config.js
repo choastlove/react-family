@@ -25,7 +25,7 @@ module.exports = {
         rules: [
             //解析js文件
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 use: ["babel-loader?cacheDirectory=true"],
                 include: path.join(__dirname,"src")
             },
@@ -52,7 +52,16 @@ module.exports = {
         contentBase: path.join(__dirname,'./dist'),
         historyApiFallback: true,
         port: 8080,
-        host: '0.0.0.0'
+        host: '0.0.0.0',
+        proxy:{
+            '/Supplier':{
+                target: 'http://117.78.35.133:50102',
+                changeOrigin: true,
+                pathRewrite: {
+                  '^/Supplier': '/Supplier'
+                }
+            }
+          }
     },
     resolve: {
         alias: {
